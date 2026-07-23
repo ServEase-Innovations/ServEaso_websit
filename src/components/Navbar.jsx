@@ -19,7 +19,7 @@ export default function Navbar() {
           <img
             alt="Servease Logo"
             className="h-10 w-10 object-contain"
-            src="/Logo.png"
+            src="/logo.jpeg"
           />
           <span className="text-headline-md font-display-lg-mobile font-bold text-on-surface">ServEaso</span>
         </NavLink>

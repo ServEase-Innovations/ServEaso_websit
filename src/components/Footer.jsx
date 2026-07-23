@@ -7,7 +7,7 @@ export default function Footer() {
             <img
               alt="ServEaso Logo"
               className="h-8 w-8 object-contain"
-              src="/Logo.png"
+              src="/logo.jpeg"
             />
             <span className="text-headline-md font-display-lg-mobile font-extrabold text-on-surface">ServEaso</span>
           </div>

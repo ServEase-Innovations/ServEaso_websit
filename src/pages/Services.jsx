@@ -1,4 +1,13 @@
-import { ChefHat, Sparkles, Baby, ShieldCheck, Check } from "lucide-react";
+import {
+  ChefHat,
+  Sparkles,
+  Baby,
+  ShieldCheck,
+  Check,
+  MapPin,
+  IndianRupee,
+  Navigation,
+} from "lucide-react";
 import { useState } from "react";
 
 const tabs = [
@@ -7,10 +16,26 @@ const tabs = [
   { key: "nannies", label: "Trusted Nannies", icon: Baby },
 ];
 
-const testimonials = [
-  { name: "Ananya R.", text: "The professional cook we hired through Servease has completely transformed our evenings. Delicious, healthy food exactly how we like it!" },
-  { name: "Vikram S.", text: "Reliable and punctual housekeeping. The deep cleaning service was impressive. Highly recommend for working professionals." },
-  { name: "Sneha K.", text: "Our nanny is wonderful. Finding someone trustworthy was our biggest worry, but Servease's vetting process put us at ease." },
+// Edit this list as your rollout plan changes — it drives the "coming soon" strip below.
+const comingSoonCities = ["Mumbai", "Pune", "Hyderabad", "Delhi NCR", "Chennai"];
+
+// Real, structural claims only — no user counts or star ratings until you actually have them.
+const differentiators = [
+  {
+    icon: ShieldCheck,
+    title: "Verified, not just listed",
+    body: "ID check, background check and an in-person skills interview for every helper before they join.",
+  },
+  {
+    icon: IndianRupee,
+    title: "Transparent pricing",
+    body: "Visits start at ₹99, shown upfront with no hidden fees at checkout.",
+  },
+  {
+    icon: Navigation,
+    title: "Live tracking",
+    body: "See your helper's arrival on the map and chat directly if plans change.",
+  },
 ];
 
 export default function Services() {
@@ -19,16 +44,22 @@ export default function Services() {
   return (
     <div>
       <section className="max-w-4xl mx-auto px-5 pt-16 pb-10 text-center">
-        <p className="text-xs font-semibold text-primary bg-surface-container-low inline-block px-3 py-1 rounded-full mb-5">
-          Our expertise
-        </p>
+        <div className="flex items-center justify-center gap-2 mb-5">
+          <p className="text-xs font-semibold text-primary bg-surface-container-low inline-flex items-center gap-1 px-3 py-1 rounded-full">
+            Our expertise
+          </p>
+          <p className="text-xs font-semibold text-emerald-600 bg-emerald-50 inline-flex items-center gap-1 px-3 py-1 rounded-full">
+            <MapPin size={12} /> Live in Bangalore
+          </p>
+        </div>
         <h1 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4">
           Elite home services tailored to your lifestyle
         </h1>
         <p className="text-on-surface-variant max-w-xl mx-auto mb-8">
           Experience the peak of professional home care. From culinary
           masters to certified caregivers, we bring reliability directly to
-          your doorstep.
+          your doorstep — currently serving Bangalore, with more cities on
+          the way.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           {tabs.map((t) => (
@@ -48,10 +79,10 @@ export default function Services() {
       </section>
 
       <section className="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 grid sm:grid-cols-2 rounded-2xl overflow-hidden border border-outline-variant/30">
+        <div className="group md:col-span-2 grid sm:grid-cols-2 rounded-2xl overflow-hidden border border-outline-variant/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div className="aspect-square sm:aspect-auto bg-surface-container">
             <img
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&auto=format&fit=crop"
+              src="/COOK.png"
               alt="Professional cook"
               className="w-full h-full object-cover"
             />
@@ -73,7 +104,7 @@ export default function Services() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-outline">Starting from</p>
-                <p className="font-bold text-on-surface">₹8,000/mo</p>
+                <p className="font-bold text-on-surface">₹99 / visit</p>
               </div>
               <button className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-lg">Book Now</button>
             </div>
@@ -83,22 +114,18 @@ export default function Services() {
         <div className="bg-surface-container-low rounded-2xl p-6 flex flex-col items-center justify-center text-center">
           <ShieldCheck size={40} className="text-primary mb-4" />
           <h3 className="font-bold text-on-surface mb-2">100% Verified Professionals</h3>
-          <p className="text-sm text-on-surface-variant mb-4">
+          <p className="text-sm text-on-surface-variant">
             Every service partner undergoes a rigorous 5-step background
-            verification and skill assessment.
+            verification and skill assessment before joining Servease.
           </p>
-          <div className="w-full bg-white rounded-full h-2 overflow-hidden">
-            <div className="bg-primary h-full" style={{ width: "98%" }} />
-          </div>
-          <p className="text-xs text-outline mt-2">Trust Score: 98%</p>
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-5 pb-16 grid md:grid-cols-2 gap-6">
-        <div className="rounded-2xl overflow-hidden border border-outline-variant/30">
+       <div className="group rounded-2xl overflow-hidden border border-outline-variant/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div className="aspect-[16/9] relative">
             <img
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop"
+              src="/maid.png"
               alt="Housekeeping"
               className="w-full h-full object-cover"
             />
@@ -117,18 +144,18 @@ export default function Services() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs text-outline">Full time</p>
-                <p className="font-bold text-on-surface">₹12,000/mo</p>
+                <p className="text-xs text-outline">Starting from</p>
+                <p className="font-bold text-on-surface">₹99 / visit</p>
               </div>
               <button className="border border-primary text-primary text-sm font-semibold px-4 py-2 rounded-lg">Select Plan</button>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-outline-variant/30">
+        <div className="group rounded-2xl overflow-hidden border border-outline-variant/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div className="aspect-[16/9] relative">
             <img
-              src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=800&auto=format&fit=crop"
+              src="/nanny.png"
               alt="Nanny with child"
               className="w-full h-full object-cover"
             />
@@ -147,8 +174,8 @@ export default function Services() {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs text-outline">Monthly plan</p>
-                <p className="font-bold text-on-surface">₹15,000/mo</p>
+                <p className="text-xs text-outline">Starting from</p>
+                <p className="font-bold text-on-surface">₹99 / visit</p>
               </div>
               <button className="border border-primary text-primary text-sm font-semibold px-4 py-2 rounded-lg">Select Plan</button>
             </div>
@@ -156,22 +183,50 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Service area strip — Bangalore live, rest coming soon */}
+      <section className="max-w-6xl mx-auto px-5 pb-16">
+        <div className="bg-surface-container-low rounded-2xl px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center">
+              <MapPin size={22} className="text-emerald-600" />
+            </div>
+            <div className="text-left">
+              <p className="text-xs text-outline">Currently serving</p>
+              <p className="font-bold text-on-surface">Bangalore</p>
+            </div>
+          </div>
+          <div className="hidden md:block w-px self-stretch bg-outline-variant/30" />
+          <div className="text-left">
+            <p className="text-xs text-outline mb-2">Coming soon to</p>
+            <div className="flex flex-wrap gap-2">
+              {comingSoonCities.map((city) => (
+                <span
+                  key={city}
+                  className="text-xs font-medium text-on-surface-variant bg-white border border-outline-variant/30 px-3 py-1 rounded-full"
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why families are choosing Servease — structural claims only, no ratings or user counts */}
       <section className="bg-surface-container-low py-16">
         <div className="max-w-6xl mx-auto px-5 text-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-on-surface mb-2">Trusted by 50,000+ Families</h2>
-          <p className="text-on-surface-variant mb-10">Join the community of satisfied homeowners who choose Servease for peace of mind.</p>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-on-surface mb-2">
+            Why families are choosing Servease first
+          </h2>
+          <p className="text-on-surface-variant mb-10">
+            No fluff, just what we actually do differently.
+          </p>
           <div className="grid md:grid-cols-3 gap-6 text-left">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white rounded-2xl p-6 border border-outline-variant/30">
-                <div className="flex gap-1 text-emerald-500 mb-3 text-sm">★★★★★</div>
-                <p className="text-sm text-on-surface-variant mb-5">"{t.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-secondary-container" />
-                  <div>
-                    <p className="text-sm font-semibold text-on-surface">{t.name}</p>
-                    <p className="text-xs text-outline">Verified User</p>
-                  </div>
-                </div>
+            {differentiators.map((d) => (
+              <div key={d.title} className="bg-white rounded-2xl p-6 border border-outline-variant/30">
+                <d.icon size={28} className="text-primary mb-4" />
+                <h3 className="font-bold text-on-surface mb-2">{d.title}</h3>
+                <p className="text-sm text-on-surface-variant">{d.body}</p>
               </div>
             ))}
           </div>
@@ -183,8 +238,8 @@ export default function Services() {
           <div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-on-surface mb-2">Ready to simplify your home life?</h2>
             <p className="text-on-surface-variant max-w-md">
-              Download the Servease app today and book your first session in
-              under 2 minutes. Your home deserves the best care.
+              Download the Servease app today and book your first visit from
+              ₹99. Currently available across Bangalore — your city is next.
             </p>
           </div>
           <div className="flex gap-3 shrink-0">
