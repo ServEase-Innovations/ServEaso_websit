@@ -4,8 +4,6 @@
   command = "npm run build"
   # Output directory
   publish = "dist"
-  # Base directory
-  base = "apps/servease-website"
 
 # Environment variables
 [build.environment]
