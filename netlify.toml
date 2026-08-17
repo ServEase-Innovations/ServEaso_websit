@@ -1,0 +1,41 @@
+# Netlify configuration for ServEaso Website
+[build]
+  # Build command
+  command = "npm run build"
+  # Output directory
+  publish = "dist"
+  # Base directory
+  base = "apps/servease-website"
+
+# Environment variables
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirects and rewrites
+[[redirects]]
+  # Proxy /book-app/* to the booking application
+  from = "/book-app/*"
+  to = "https://serveaso-booking.netlify.app/:splat"
+  status = 200
+  force = true
+  
+# SPA fallback - must be last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
